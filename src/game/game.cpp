@@ -6989,6 +6989,16 @@ void Game::playerSetAttackedCreature(uint32_t playerId, uint32_t creatureId) {
 		return;
 	}
 
+	// Idle combat (expedition / boss): AI owns the attack target.
+	// Deny client Attack / ClearTarget so disconnect or UI cleanup cannot stop the hunt.
+	if (player->isIdleCombat()) {
+		if (creatureId != 0) {
+			player->sendCancelMessage("You cannot change your target during idle combat.");
+			player->sendCancelTarget();
+		}
+		return;
+	}
+
 	if (player->getAttackedCreature() && creatureId == 0) {
 		player->resetLoginProtection();
 		player->setAttackedCreature(nullptr);

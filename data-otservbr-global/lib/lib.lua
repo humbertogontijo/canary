@@ -12,6 +12,3 @@ dofile(DATA_DIRECTORY .. "/lib/tables/load.lua")
 
 -- Functions library
 dofile(DATA_DIRECTORY .. "/lib/functions/load.lua")
-
--- Idle expedition system
-dofile(DATA_DIRECTORY .. "/lib/expeditions/load.lua")
