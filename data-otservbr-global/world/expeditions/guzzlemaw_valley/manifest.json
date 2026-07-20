@@ -1,0 +1,60 @@
+{
+  "region": "guzzlemaw_valley",
+  "sourceFrom": {
+    "x": 33678,
+    "y": 32480,
+    "z": 7
+  },
+  "sourceTo": {
+    "x": 33711,
+    "y": 32501,
+    "z": 7
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "3b02c7bc",
+        "s": "60db489a",
+        "w": "8f0d3078",
+        "e": "7c54d194"
+      }
+    }
+  ]
+}

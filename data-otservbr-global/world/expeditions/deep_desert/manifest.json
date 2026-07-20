@@ -1,0 +1,60 @@
+{
+  "region": "deep_desert",
+  "sourceFrom": {
+    "x": 32970,
+    "y": 32252,
+    "z": 10
+  },
+  "sourceTo": {
+    "x": 33003,
+    "y": 32273,
+    "z": 10
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "abffb03a",
+        "s": "6eb9d7ed",
+        "w": "86e4dc80",
+        "e": "a17da535"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "region": "roshamuul_prison",
+  "sourceFrom": {
+    "x": 33551,
+    "y": 32401,
+    "z": 10
+  },
+  "sourceTo": {
+    "x": 33584,
+    "y": 32422,
+    "z": 10
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "92068211",
+        "s": "807b30b2",
+        "w": "119d8f01",
+        "e": "ea9a3f02"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "region": "dragonblaze_peaks",
+  "sourceFrom": {
+    "x": 33284,
+    "y": 31284,
+    "z": 5
+  },
+  "sourceTo": {
+    "x": 33317,
+    "y": 31305,
+    "z": 5
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "96d20168",
+        "s": "0f2062c7",
+        "w": "73b92afa",
+        "e": "508748c7"
+      }
+    }
+  ]
+}

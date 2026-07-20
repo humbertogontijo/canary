@@ -1,27 +1,31 @@
 {
-  "region": "rotworm_fields",
+  "region": "ancient_ancestorial_grounds",
   "sourceFrom": {
-    "x": 32351,
-    "y": 32149,
-    "z": 7
+    "x": 33532,
+    "y": 31453,
+    "z": 14
   },
   "sourceTo": {
-    "x": 32383,
-    "y": 32181,
-    "z": 7
+    "x": 33565,
+    "y": 31474,
+    "z": 14
   },
-  "chunkSize": 32,
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
   "chunks": [
     {
       "id": "c0_0",
       "file": "c0_0.otbm",
       "localX": 0,
       "localY": 0,
-      "size": 32,
+      "width": 33,
+      "height": 21,
+      "size": 33,
       "walkableEntries": [
         {
           "x": 16,
-          "y": 16,
+          "y": 10,
           "z": 0
         },
         {
@@ -30,26 +34,26 @@
           "z": 0
         },
         {
-          "x": 30,
+          "x": 31,
           "y": 1,
           "z": 0
         },
         {
           "x": 1,
-          "y": 30,
+          "y": 19,
           "z": 0
         },
         {
-          "x": 30,
-          "y": 30,
+          "x": 31,
+          "y": 19,
           "z": 0
         }
       ],
       "edgeTags": {
-        "n": "a46c49ef",
-        "s": "014afc3c",
-        "w": "a37707c2",
-        "e": "d018ec1d"
+        "n": "b1750d96",
+        "s": "1587f7bb",
+        "w": "c0d82eb0",
+        "e": "e6b25db8"
       }
     }
   ]

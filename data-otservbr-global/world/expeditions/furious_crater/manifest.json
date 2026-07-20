@@ -1,0 +1,60 @@
+{
+  "region": "furious_crater",
+  "sourceFrom": {
+    "x": 33859,
+    "y": 31866,
+    "z": 5
+  },
+  "sourceTo": {
+    "x": 33892,
+    "y": 31887,
+    "z": 5
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "b332ee2a",
+        "s": "e4e42a36",
+        "w": "7b662022",
+        "e": "4a394688"
+      }
+    }
+  ]
+}

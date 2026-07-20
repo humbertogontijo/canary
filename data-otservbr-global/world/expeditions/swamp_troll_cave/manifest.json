@@ -1,0 +1,60 @@
+{
+  "region": "swamp_troll_cave",
+  "sourceFrom": {
+    "x": 32896,
+    "y": 32227,
+    "z": 8
+  },
+  "sourceTo": {
+    "x": 32929,
+    "y": 32248,
+    "z": 8
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "b5cc27bb",
+        "s": "e57a40cc",
+        "w": "951636f1",
+        "e": "13e6d2f9"
+      }
+    }
+  ]
+}

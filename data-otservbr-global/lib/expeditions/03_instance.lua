@@ -90,7 +90,10 @@ function ExpeditionInstance.build(slot, region, seed)
 	end
 
 	local origin = slotOrigin(slot)
-	local chunkSize = manifest.chunkSize or 32
+	local mapW = ExpeditionConfig.MAP_WIDTH
+	local mapH = ExpeditionConfig.MAP_HEIGHT
+	local chunkWidth = manifest.chunkWidth or manifest.chunkSize or mapW
+	local chunkHeight = manifest.chunkHeight or manifest.chunkSize or mapH
 	local byLocal = {}
 	local maxLX, maxLY = 0, 0
 	for _, chunk in ipairs(manifest.chunks) do
@@ -112,26 +115,32 @@ function ExpeditionInstance.build(slot, region, seed)
 			if chunk then
 				local path = dir .. "/" .. chunk.file
 				-- Chunk OTBMs are authored at z=0; offset z places them on the instance floor.
-				local stampAt = Position(origin.x + 1 + lx * chunkSize, origin.y + 1 + ly * chunkSize, origin.z)
+				local stampAt = Position(origin.x + 1 + lx * chunkWidth, origin.y + 1 + ly * chunkHeight, origin.z)
 				Game.loadMapChunk(path, stampAt, false)
 			end
 		end
 	end
 
-	local width = (maxLX + 1) * chunkSize + 2
-	local height = (maxLY + 1) * chunkSize + 2
+	-- Instance size is always the client viewport (+ 1-tile border), not the chunk grid.
+	local width = mapW + 2
+	local height = mapH + 2
 	stampBorder(origin, width, height)
 
 	local zoneName = "expedition-slot-" .. slot
 	local zone = Zone(zoneName)
 	zone:addArea(origin, Position(origin.x + width - 1, origin.y + height - 1, origin.z))
 
-	local entry = Position(origin.x + math.floor(width / 2), origin.y + math.floor(height / 2), origin.z)
-	-- Prefer a known walkable entry from the center chunk when available.
+	-- Player stands at the viewport center and never walks.
+	local entry = Position(origin.x + 1 + math.floor(mapW / 2), origin.y + 1 + math.floor(mapH / 2), origin.z)
 	local centerChunk = byLocal[math.floor(maxLX / 2) .. "," .. math.floor(maxLY / 2)]
 	if centerChunk and centerChunk.walkableEntries and centerChunk.walkableEntries[1] then
 		local we = centerChunk.walkableEntries[1]
-		entry = Position(origin.x + 1 + centerChunk.localX * chunkSize + we.x, origin.y + 1 + centerChunk.localY * chunkSize + we.y, origin.z)
+		local wx = origin.x + 1 + centerChunk.localX * chunkWidth + we.x
+		local wy = origin.y + 1 + centerChunk.localY * chunkHeight + we.y
+		-- Prefer chunk entry only when it lands inside the viewport floor.
+		if wx > origin.x and wx < origin.x + width - 1 and wy > origin.y and wy < origin.y + height - 1 then
+			entry = Position(wx, wy, origin.z)
+		end
 	end
 
 	return {
@@ -139,6 +148,8 @@ function ExpeditionInstance.build(slot, region, seed)
 		origin = origin,
 		width = width,
 		height = height,
+		mapWidth = mapW,
+		mapHeight = mapH,
 		zone = zone,
 		zoneName = zoneName,
 		entry = entry,
@@ -203,6 +214,11 @@ function ExpeditionInstance.teardown(instance)
 	ExpeditionInstance.free(instance.slot)
 end
 
+local function isWalkable(pos)
+	local tile = Tile(pos)
+	return tile and tile:getGround() and not tile:hasFlag(TILESTATE_BLOCKSOLID)
+end
+
 function ExpeditionInstance.randomWalkable(instance)
 	if not instance then
 		return nil
@@ -212,10 +228,59 @@ function ExpeditionInstance.randomWalkable(instance)
 		local x = math.random(origin.x + 2, origin.x + instance.width - 3)
 		local y = math.random(origin.y + 2, origin.y + instance.height - 3)
 		local pos = Position(x, y, origin.z)
-		local tile = Tile(pos)
-		if tile and tile:getGround() and not tile:hasFlag(TILESTATE_BLOCKSOLID) then
+		if isWalkable(pos) then
 			return pos
 		end
 	end
 	return instance.entry
+end
+
+local function collectRingWalkable(center, radius, instance)
+	local origin = instance.origin
+	local minX, maxX = origin.x + 2, origin.x + instance.width - 3
+	local minY, maxY = origin.y + 2, origin.y + instance.height - 3
+	local candidates = {}
+	for dx = -radius, radius do
+		for dy = -radius, radius do
+			-- Chebyshev ring at exact attack range (Tibia distance).
+			if math.max(math.abs(dx), math.abs(dy)) == radius then
+				local x, y = center.x + dx, center.y + dy
+				if x >= minX and x <= maxX and y >= minY and y <= maxY then
+					local pos = Position(x, y, center.z)
+					if isWalkable(pos) then
+						candidates[#candidates + 1] = pos
+					end
+				end
+			end
+		end
+	end
+	return candidates
+end
+
+-- Spawn on the ring around the player at the creature's attack range
+-- (melee targetDistance=1 → 1-tile radius, ranged=3 → 3-tile radius, …).
+function ExpeditionInstance.randomAttackRangeWalkable(instance, center, radius)
+	if not instance or not center then
+		return nil
+	end
+	radius = math.max(1, tonumber(radius) or 1)
+
+	local candidates = collectRingWalkable(center, radius, instance)
+	if #candidates > 0 then
+		return candidates[math.random(1, #candidates)]
+	end
+
+	-- Prefer a nearby ring if the exact range is blocked / out of bounds.
+	for delta = 1, 3 do
+		for _, r in ipairs({ radius - delta, radius + delta }) do
+			if r >= 1 then
+				candidates = collectRingWalkable(center, r, instance)
+				if #candidates > 0 then
+					return candidates[math.random(1, #candidates)]
+				end
+			end
+		end
+	end
+
+	return ExpeditionInstance.randomWalkable(instance)
 end

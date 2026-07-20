@@ -1,0 +1,55 @@
+{
+  "region": "corym_mines",
+  "sourceFrom": {
+    "x": 33031,
+    "y": 31994,
+    "z": 13
+  },
+  "sourceTo": {
+    "x": 33064,
+    "y": 32015,
+    "z": 13
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "5618f267",
+        "s": "d657d10b",
+        "w": "b7fc7662",
+        "e": "011a9033"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "region": "deeper_banuta",
+  "sourceFrom": {
+    "x": 32785,
+    "y": 32612,
+    "z": 15
+  },
+  "sourceTo": {
+    "x": 32818,
+    "y": 32633,
+    "z": 15
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "218d76e1",
+        "s": "9c037b12",
+        "w": "61b51bca",
+        "e": "da4565b5"
+      }
+    }
+  ]
+}

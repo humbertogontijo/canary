@@ -1,0 +1,60 @@
+{
+  "region": "court_of_winter",
+  "sourceFrom": {
+    "x": 33671,
+    "y": 32103,
+    "z": 7
+  },
+  "sourceTo": {
+    "x": 33704,
+    "y": 32124,
+    "z": 7
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "0dd2f1a5",
+        "s": "e375c3f9",
+        "w": "017eb39f",
+        "e": "32963571"
+      }
+    }
+  ]
+}

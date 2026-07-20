@@ -31,6 +31,10 @@ function ExpeditionProtocol.sendStatus(player, session)
 			kills = session.kills or 0,
 			state = session.state or "idle",
 			elapsedSec = elapsed,
+			lure = session.lure or ExpeditionConfig.LURE_DEFAULT or 1,
+			waveLure = session.waveLure or session.lure or ExpeditionConfig.LURE_DEFAULT or 1,
+			lureMin = ExpeditionConfig.LURE_MIN or 1,
+			lureMax = ExpeditionConfig.LURE_MAX or 8,
 		},
 	})
 end
@@ -71,5 +75,7 @@ function ExpeditionProtocol.handle(player, buffer)
 		ExpeditionManager.join(player, msg.id)
 	elseif action == "leave" then
 		ExpeditionManager.leave(player)
+	elseif action == "setLure" then
+		ExpeditionManager.setLure(player, msg.lure)
 	end
 end

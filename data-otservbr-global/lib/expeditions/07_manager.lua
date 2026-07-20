@@ -83,10 +83,13 @@ function ExpeditionManager.join(player, expeditionId)
 		ExpeditionProtocol.sendError(player, "Unknown expedition.")
 		return
 	end
-	if player:getLevel() < (catalog.levelMin or 1) then
+	local group = player:getGroup()
+	local isGod = group and group:getId() == 6 -- groups.xml: god
+	if not isGod and player:getLevel() < (catalog.levelMin or 1) then
 		ExpeditionProtocol.sendError(player, "Level too low for this expedition.")
 		return
 	end
+
 
 	local slot, _ = ExpeditionInstance.allocate()
 	if slot == nil then
@@ -114,6 +117,8 @@ function ExpeditionManager.join(player, expeditionId)
 		wave = 0,
 		alive = 0,
 		kills = 0,
+		lure = ExpeditionConfig.LURE_DEFAULT or 1,
+		waveLure = nil,
 		state = "idle",
 		startedAt = os.time(),
 	}
@@ -141,7 +146,7 @@ function ExpeditionManager.join(player, expeditionId)
 				ExpeditionInstance.ensureFloor(instance)
 			end
 		end
-		-- Cancel any client walk so AI owns movement.
+		-- Player stays at entry; creatures walk to the player.
 		p:setFollowCreature(nil)
 		p:teleportTo(instance.entry)
 		p:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -169,6 +174,39 @@ local function cleanupSession(session, player)
 	if player then
 		sessionsByPlayerId[player:getId()] = nil
 		player:unregisterEvent("ExpeditionPlayerDeath")
+	end
+end
+
+function ExpeditionManager.setLure(player, lure)
+	if not player then
+		return
+	end
+	local session = ExpeditionManager.getSessionByPlayer(player)
+	if not session then
+		ExpeditionProtocol.sendError(player, "Not on an expedition.")
+		return
+	end
+	local value = math.floor(tonumber(lure) or 0)
+	local lureMin = ExpeditionConfig.LURE_MIN or 1
+	local lureMax = ExpeditionConfig.LURE_MAX or 8
+	if value < lureMin or value > lureMax then
+		ExpeditionProtocol.sendError(player, string.format("Lure must be between %d and %d.", lureMin, lureMax))
+		return
+	end
+	if session.lure == value then
+		ExpeditionProtocol.sendStatus(player, session)
+		return
+	end
+	session.lure = value
+	-- Applies on the next wave spawn only; current wave keeps session.waveLure.
+	ExpeditionProtocol.sendStatus(player, session)
+	if session.state == "hunting" and session.waveLure and session.waveLure ~= value then
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE,
+			string.format("Lure set to %d (applies next wave).", value)
+		)
+	else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Lure set to %d.", value))
 	end
 end
 

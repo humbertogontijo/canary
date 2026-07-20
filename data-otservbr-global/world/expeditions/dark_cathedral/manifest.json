@@ -1,0 +1,60 @@
+{
+  "region": "dark_cathedral",
+  "sourceFrom": {
+    "x": 32761,
+    "y": 32231,
+    "z": 15
+  },
+  "sourceTo": {
+    "x": 32794,
+    "y": 32252,
+    "z": 15
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "cf02a102",
+        "s": "cf028b0d",
+        "w": "1e8d2fe1",
+        "e": "bbe81dfe"
+      }
+    }
+  ]
+}

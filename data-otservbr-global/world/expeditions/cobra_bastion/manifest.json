@@ -1,0 +1,60 @@
+{
+  "region": "cobra_bastion",
+  "sourceFrom": {
+    "x": 33347,
+    "y": 32773,
+    "z": 8
+  },
+  "sourceTo": {
+    "x": 33380,
+    "y": 32794,
+    "z": 8
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "fea2b199",
+        "s": "6468ffac",
+        "w": "962f4912",
+        "e": "349a8cfa"
+      }
+    }
+  ]
+}

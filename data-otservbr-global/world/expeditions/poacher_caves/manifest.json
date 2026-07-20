@@ -1,0 +1,60 @@
+{
+  "region": "poacher_caves",
+  "sourceFrom": {
+    "x": 32786,
+    "y": 31762,
+    "z": 7
+  },
+  "sourceTo": {
+    "x": 32819,
+    "y": 31783,
+    "z": 7
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "eaddb00c",
+        "s": "5e95c34f",
+        "w": "f6fec286",
+        "e": "6e524000"
+      }
+    }
+  ]
+}

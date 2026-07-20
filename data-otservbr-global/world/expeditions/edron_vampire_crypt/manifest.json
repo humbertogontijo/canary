@@ -1,0 +1,60 @@
+{
+  "region": "edron_vampire_crypt",
+  "sourceFrom": {
+    "x": 32981,
+    "y": 31611,
+    "z": 12
+  },
+  "sourceTo": {
+    "x": 33014,
+    "y": 31632,
+    "z": 12
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "109ade62",
+        "s": "00bcdf02",
+        "w": "3f0d3563",
+        "e": "40d2359b"
+      }
+    }
+  ]
+}

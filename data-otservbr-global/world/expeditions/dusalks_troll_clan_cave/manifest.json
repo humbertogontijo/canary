@@ -1,0 +1,60 @@
+{
+  "region": "dusalks_troll_clan_cave",
+  "sourceFrom": {
+    "x": 32619,
+    "y": 31992,
+    "z": 9
+  },
+  "sourceTo": {
+    "x": 32652,
+    "y": 32013,
+    "z": 9
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "f1632833",
+        "s": "415cc306",
+        "w": "19efcb89",
+        "e": "6c1a26c3"
+      }
+    }
+  ]
+}

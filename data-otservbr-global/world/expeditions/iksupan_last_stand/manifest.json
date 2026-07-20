@@ -1,0 +1,60 @@
+{
+  "region": "iksupan_last_stand",
+  "sourceFrom": {
+    "x": 33991,
+    "y": 31830,
+    "z": 9
+  },
+  "sourceTo": {
+    "x": 34024,
+    "y": 31851,
+    "z": 9
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "cd94b68a",
+        "s": "71311cd5",
+        "w": "8277a9ee",
+        "e": "e884320b"
+      }
+    }
+  ]
+}

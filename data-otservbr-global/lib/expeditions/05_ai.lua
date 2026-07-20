@@ -47,6 +47,22 @@ local function nearestMonster(player, zone)
 	return best
 end
 
+local function pullMonstersToPlayer(player, zone)
+	if not player or not zone then
+		return
+	end
+	local playerId = player:getId()
+	for _, monster in ipairs(zone:getMonsters()) do
+		if monster and monster:getHealth() > 0 then
+			monster:setIdle(false)
+			local current = monster:getTarget()
+			if not current or current:getId() ~= playerId then
+				monster:selectTarget(player)
+			end
+		end
+	end
+end
+
 local function lootNearby(player)
 	if not player then
 		return
@@ -90,9 +106,10 @@ function ExpeditionAI.tick(session)
 	end
 
 	ExpeditionAI.enablePersistence(player)
+	-- Player stays put; creatures walk to the player.
+	player:setFollowCreature(nil)
 
 	if session.state == "waiting" or session.state == "idle" then
-		player:setFollowCreature(nil)
 		player:setTarget(nil)
 		syncAttackTarget(session, player, nil)
 		return
@@ -101,11 +118,12 @@ function ExpeditionAI.tick(session)
 	local zone = session.instance and session.instance.zone
 	local tile = Tile(player:getPosition())
 	if not tile or not tile:getGround() then
-		player:setFollowCreature(nil)
 		player:setTarget(nil)
 		syncAttackTarget(session, player, nil)
 		return
 	end
+
+	pullMonstersToPlayer(player, zone)
 
 	local target = nearestMonster(player, zone)
 	if target then
@@ -118,18 +136,7 @@ function ExpeditionAI.tick(session)
 			session.lastSyncedAttackCreatureId = nil
 		end
 		syncAttackTarget(session, player, target)
-		local dist = player:getPosition():getDistance(target:getPosition())
-		if dist <= 1 then
-			player:setFollowCreature(nil)
-		else
-			local follow = player:getFollowCreature()
-			if not follow or follow:getId() ~= target:getId() then
-				-- setFollowCreature emits "There is no way." on failure; avoid re-spamming.
-				player:setFollowCreature(target)
-			end
-		end
 	else
-		player:setFollowCreature(nil)
 		player:setTarget(nil)
 		syncAttackTarget(session, player, nil)
 		lootNearby(player)

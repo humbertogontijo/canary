@@ -1,0 +1,60 @@
+{
+  "region": "ebb_and_flow",
+  "sourceFrom": {
+    "x": 33915,
+    "y": 31008,
+    "z": 9
+  },
+  "sourceTo": {
+    "x": 33948,
+    "y": 31029,
+    "z": 9
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "5d3bb10d",
+        "s": "c4c0ed5b",
+        "w": "4130fc6c",
+        "e": "f00546a7"
+      }
+    }
+  ]
+}

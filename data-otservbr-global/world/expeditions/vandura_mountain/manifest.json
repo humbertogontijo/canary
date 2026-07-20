@@ -1,0 +1,60 @@
+{
+  "region": "vandura_mountain",
+  "sourceFrom": {
+    "x": 32389,
+    "y": 32736,
+    "z": 1
+  },
+  "sourceTo": {
+    "x": 32422,
+    "y": 32757,
+    "z": 1
+  },
+  "chunkWidth": 33,
+  "chunkHeight": 21,
+  "chunkSize": 33,
+  "chunks": [
+    {
+      "id": "c0_0",
+      "file": "c0_0.otbm",
+      "localX": 0,
+      "localY": 0,
+      "width": 33,
+      "height": 21,
+      "size": 33,
+      "walkableEntries": [
+        {
+          "x": 16,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "z": 0
+        },
+        {
+          "x": 1,
+          "y": 19,
+          "z": 0
+        },
+        {
+          "x": 31,
+          "y": 19,
+          "z": 0
+        }
+      ],
+      "edgeTags": {
+        "n": "652859a3",
+        "s": "31ec0401",
+        "w": "7b107ac6",
+        "e": "7b107ac6"
+      }
+    }
+  ]
+}
